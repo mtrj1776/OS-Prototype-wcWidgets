@@ -19,7 +19,8 @@ cApp::cApp()
 // (Where you delete memory allocated with 'new' and 'delete'
 cApp::~cApp()
 {
-
+    // wxWidgets handles deletion of objects.
+    // Any arrays will need to be deleted if created with a new command
 }
 
 // OnInit Function (entry point to initialise variables
