@@ -21,6 +21,10 @@ wxEND_EVENT_TABLE()
 
 cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultPosition, wxDefaultSize)
 {
+
+/* ----------------------------------------------------------------------------
+	Layout Panel Components and settings
+-----------------------------------------------------------------------------*/
 #pragma region layoutPanel
 
 	// Layout Panel background and colour
@@ -33,7 +37,9 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 
 #pragma endregion layoutPanel
 
-
+/* ----------------------------------------------------------------------------
+	Data Panel Components and settings
+-----------------------------------------------------------------------------*/
 #pragma region dataPanel
 
 	// Data Panel
@@ -42,7 +48,27 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 
 #pragma endregion dataPanel
 
+/* ----------------------------------------------------------------------------
+	Network Layers Activations Panel Components and settings
+-----------------------------------------------------------------------------*/
+#pragma region NetworkLayersActivation
 
+
+
+
+#pragma endregion NetworkLayersActivation
+
+/* ----------------------------------------------------------------------------
+	Node Image Activations Panel Components and settings
+-----------------------------------------------------------------------------*/
+#pragma region NodeImageActivations
+
+
+#pragma endregion NodeImageActivations
+
+/* ----------------------------------------------------------------------------
+	Main Sizer Frame Components and settings
+-----------------------------------------------------------------------------*/
 #pragma region mainSizer
 	// Add panel sizer to control size
 	mainSizer = new wxBoxSizer(wxVERTICAL);
