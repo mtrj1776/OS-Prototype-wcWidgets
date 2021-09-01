@@ -10,7 +10,9 @@ public:
 	~cMain();
 
 	// Main Frame Sizer
-	wxFlexGridSizer* mainSizer = nullptr;
+	wxBoxSizer* mainSizer = nullptr;
+	wxBoxSizer* topSizer = nullptr;
+	wxBoxSizer* bottomSizer = nullptr;
 
 	// Layout Panel
 	wxPanel* layoutPanel = nullptr;

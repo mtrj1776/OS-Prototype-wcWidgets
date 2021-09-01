@@ -32,8 +32,8 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 	layoutPanel->SetBackgroundColour(wxColour(100, 100, 200));
 
 	// Construct button (parent, Frame ID, Button Text, Position inside parent frame, button size | options)
-	//layoutButton = new wxButton(layoutPanel, 10001, "Layout", wxPoint(10, 10), wxSize(150, 50), wxBORDER_NONE | wxEXPAND);
-	//layoutButton->SetBackgroundColour(wxColor(100, 100, 100));
+	layoutButton = new wxButton(layoutPanel, 10001, "Layout", wxPoint(10, 10), wxSize(150, 50), wxBORDER_NONE | wxEXPAND);
+	layoutButton->SetBackgroundColour(wxColor(100, 100, 100));
 
 #pragma endregion layoutPanel
 
@@ -63,28 +63,49 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 -----------------------------------------------------------------------------*/
 #pragma region NodeImageActivations
 	nodeImageActivationsPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
-	nodeImageActivationsPanel->SetBackgroundColour(wxColor(100, 100, 200));
+	nodeImageActivationsPanel->SetBackgroundColour(wxColor(200, 100, 200));
 
 
 #pragma endregion NodeImageActivations
+
+
+#pragma region TopSizer
+	// Add panel sizer to control size
+	topSizer = new wxBoxSizer(wxHORIZONTAL);
+
+	// Add Sizer(panel the sizer is controlling, amount of area to expand to, expand type | margins)
+	// Layout Panel
+	topSizer->Add(layoutPanel, 1, wxEXPAND | wxALL, 5);
+
+	// Network Layers Panel Panel
+	topSizer->Add(networkLayersPanel, 1, wxEXPAND | wxTOP | wxRIGHT | wxBOTTOM, 5);
+
+#pragma endregion TopSizer
+
+
+#pragma region bottomSizer
+	// Add panel sizer to control size
+	bottomSizer = new wxBoxSizer(wxHORIZONTAL);
+
+	// Data Panel
+	bottomSizer->Add(dataPanel, 1, wxEXPAND | wxRIGHT | wxBOTTOM | wxLEFT, 5);
+
+	// Node Image Activations Panel
+	bottomSizer->Add(nodeImageActivationsPanel, 1, wxEXPAND | wxRIGHT | wxBOTTOM, 5);
+
+#pragma endregion bottomSizer
+
 
 /* ----------------------------------------------------------------------------
 	Main Sizer Frame Components and settings
 -----------------------------------------------------------------------------*/
 #pragma region mainSizer
 	// Add panel sizer to control size
-	mainSizer = new wxFlexGridSizer(wxVERTICAL);
+	mainSizer = new wxBoxSizer(wxVERTICAL);
 
-	// Add Sizer(panel the sizer is controlling, amount of area to expand to, expand type | margins)
-	// Layout Panel
-	mainSizer->Add(layoutPanel, 1, wxEXPAND | wxALL, 5);
+	mainSizer->Add(topSizer, 1, wxEXPAND | wxTOP | wxRIGHT | wxLEFT, 1);
 
-	// Data Panel
-	mainSizer->Add(dataPanel, 1, wxEXPAND | wxALL, 5);
-
-	mainSizer->Add(networkLayersPanel, 1, wxEXPAND | wxALL, 5);
-
-	mainSizer->Add(nodeImageActivationsPanel, 1, wxEXPAND | wxALL, 5);
+	mainSizer->Add(bottomSizer, 1, wxEXPAND | wxRIGHT | wxLEFT | wxBOTTOM, 1);
 
 	// Build sizer layout
 	this->SetSizerAndFit(mainSizer);
@@ -95,10 +116,10 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
 
-	mainSizer->Hide(layoutPanel);
+	topSizer->Hide(layoutPanel);
 
 	// Restructure panel size and layout
-	mainSizer->Layout();
+	topSizer->Layout();
 
 	// Event finished (do not look at parents for event methods)
 	evt.Skip();
