@@ -10,7 +10,7 @@ public:
 	~cMain();
 
 	// Main Frame Sizer
-	wxBoxSizer* mainSizer = nullptr;
+	wxFlexGridSizer* mainSizer = nullptr;
 
 	// Layout Panel
 	wxPanel* layoutPanel = nullptr;
@@ -18,6 +18,12 @@ public:
 
 	// Data Panel
 	wxPanel* dataPanel = nullptr;
+
+	// Network Layers Activations Panel
+	wxPanel* networkLayersPanel = nullptr;
+
+	// Node Image Activations Panel
+	wxPanel* nodeImageActivationsPanel = nullptr;
 
 	// Class Functions
 	void OnButtonClicked(wxCommandEvent& evt);
