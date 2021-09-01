@@ -9,17 +9,15 @@ public:
 	cMain();
 	~cMain();
 
-	// Component Variables
-	wxButton* m_btn1 = nullptr;
-	wxTextCtrl* m_txt1 = nullptr;
-	wxListBox* m_list1 = nullptr;
+	// Main Frame Sizer
+	wxBoxSizer* mainSizer = nullptr;
 
-	wxPanel* m_panelBackground = nullptr;
-	wxPanel* m_panelLayout = nullptr;
-	wxPanel* m_panelData = nullptr;
-	wxPanel* m_panelTest = nullptr;
-	wxBoxSizer* m_sizer2 = nullptr;
-	wxBoxSizer* m_sizer1 = nullptr;
+	// Layout Panel
+	wxPanel* layoutPanel = nullptr;
+	wxButton* layoutButton = nullptr;
+
+	// Data Panel
+	wxPanel* dataPanel = nullptr;
 
 	// Class Functions
 	void OnButtonClicked(wxCommandEvent& evt);
