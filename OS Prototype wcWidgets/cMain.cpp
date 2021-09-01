@@ -6,6 +6,12 @@ Author: Michael Johns
 
 #include "cMain.h"
 
+// Enum to store human frinedly values
+enum btn
+{
+	LayoutHeaderButton = 10001,
+};
+
 #pragma region EVENT_TABLE_MACRO
 
 // Event Table Entries macro
@@ -22,6 +28,14 @@ wxEND_EVENT_TABLE()
 cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultPosition, wxDefaultSize)
 {
 
+	// Layout Panel background and colour
+	layoutHeaderPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+	layoutHeaderPanel->SetBackgroundColour(wxColour(100, 100, 200));
+
+	// Construct button (parent, Frame ID, Button Text, Position inside parent frame, button size | options)
+	layoutHeaderButton = new wxButton(layoutHeaderPanel, btn::LayoutHeaderButton, "Layout", wxPoint(0, 0), wxSize(150, 50), wxBORDER_NONE);
+	layoutHeaderButton->SetBackgroundColour(wxColor(100, 100, 100));
+
 /* ----------------------------------------------------------------------------
 	Layout Panel Components and settings
 -----------------------------------------------------------------------------*/
@@ -32,7 +46,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 	layoutPanel->SetBackgroundColour(wxColour(100, 100, 200));
 
 	// Construct button (parent, Frame ID, Button Text, Position inside parent frame, button size | options)
-	layoutButton = new wxButton(layoutPanel, 10001, "Layout", wxPoint(10, 10), wxSize(150, 50), wxBORDER_NONE | wxEXPAND);
+	layoutButton = new wxButton(layoutPanel, btn::LayoutHeaderButton, "Layout", wxPoint(0, 0), wxSize(150, 50), wxBORDER_NONE);
 	layoutButton->SetBackgroundColour(wxColor(100, 100, 100));
 
 #pragma endregion layoutPanel
@@ -73,6 +87,8 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 	// Add panel sizer to control size
 	topSizer = new wxBoxSizer(wxHORIZONTAL);
 
+	topSizer->Add(layoutHeaderPanel, 1, wxEXPAND | wxALL, 3);
+
 	// Add Sizer(panel the sizer is controlling, amount of area to expand to, expand type | margins)
 	// Layout Panel
 	topSizer->Add(layoutPanel, 1, wxEXPAND | wxALL, 5);
@@ -110,16 +126,30 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets", wxDefaultP
 	// Build sizer layout
 	this->SetSizerAndFit(mainSizer);
 
+
 #pragma endregion mainSizer
 }
 
 void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
+	switch (evt.GetId())
+	{
+	case btn::LayoutHeaderButton:
+		if (dataPanel->IsShown())
+		{
+			dataPanel->Hide();
+			bottomSizer->Layout();
+		}
+		else
+		{
+			dataPanel->Show();
+			bottomSizer->Layout();
+		}
+		break;
+	case 10002:
+		break;
+	}
 
-	topSizer->Hide(layoutPanel);
-
-	// Restructure panel size and layout
-	topSizer->Layout();
 
 	// Event finished (do not look at parents for event methods)
 	evt.Skip();

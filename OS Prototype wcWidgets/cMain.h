@@ -15,6 +15,8 @@ public:
 	wxBoxSizer* bottomSizer = nullptr;
 
 	// Layout Panel
+	wxPanel* layoutHeaderPanel = nullptr;
+	wxButton* layoutHeaderButton = nullptr;
 	wxPanel* layoutPanel = nullptr;
 	wxButton* layoutButton = nullptr;
 
