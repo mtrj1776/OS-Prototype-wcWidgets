@@ -16,7 +16,7 @@ cApp::cApp()
 }
 
 // Deconstructor for cApp
-// (Where you delete memory allocated with 'new' and 'delete'
+// (Where you delete memory allocated with 'new' and 'delete')
 cApp::~cApp()
 {
     // wxWidgets handles deletion of objects.
@@ -29,8 +29,9 @@ bool cApp::OnInit()
 
     // Create new instance of main
     m_frame1 = new cMain();
-
     // Show main window
+    m_frame1->IsMaximized();
+    m_frame1->EnableCloseButton();
     m_frame1->Show();
 
     return true;
