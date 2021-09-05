@@ -26,7 +26,7 @@ cApp::~cApp()
 // OnInit Function (entry point to initialise variables
 bool cApp::OnInit()
 {
-
+    wxInitAllImageHandlers();
     // Create new instance of main
     m_frame1 = new cMain();
     // Show main window

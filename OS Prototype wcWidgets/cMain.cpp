@@ -158,6 +158,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets")
 	// Node Image Activations Panel
 	BottomInnerBottomSizer->Add(dataPanel, 1, wxEXPAND | wxRIGHT | wxBOTTOM | wxLEFT, 5);
 	BottomInnerBottomSizer->Add(nodeImageActivationsPanel, 1, wxEXPAND | wxRIGHT | wxBOTTOM | wxLEFT, 5);
+	drawPane = new wxImagePanel(this, wxT("DeepLearningrepos\\toponet\\toponetvis_outputs\\shapes\\shapes40x40_c32c32c32c08_classifier_top09_maxactimages\\conv2d\\unit_0000\\maxim_006.png"), wxBITMAP_TYPE_JPEG);
 
 #pragma endregion NodeImageActivations
 
@@ -170,6 +171,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "OS Prototype wcWidgets")
 	bottomSizer = new wxBoxSizer(wxVERTICAL);
 	bottomSizer->Add(BottomInnertopSizer, 0.1, wxEXPAND);// | wxTOP | wxRIGHT | wxLEFT, 1);
 	bottomSizer->Add(BottomInnerBottomSizer, 1, wxEXPAND | wxBOTTOM, 1);// | wxTOP | wxRIGHT | wxLEFT, 1);
+	bottomSizer->Add(drawPane, 1, wxEXPAND);
 
 #pragma endregion BottomSizer
 

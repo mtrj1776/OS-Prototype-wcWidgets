@@ -1,6 +1,7 @@
 #pragma once
 
 #include "wx/wx.h"
+#include "wxImagePanel.h"
 
 // Inherit wxFrame(Parent frame, Frame ID
 class cMain : public wxFrame
@@ -37,6 +38,8 @@ public:
 	wxPanel* nodeImageActivationsHeaderPanel = nullptr;
 	wxButton* nodeImageActivationsHeaderButton = nullptr;
 	wxPanel* nodeImageActivationsPanel = nullptr;
+
+	wxImagePanel* drawPane;
 
 	// Class Functions
 	void OnButtonClicked(wxCommandEvent& evt);

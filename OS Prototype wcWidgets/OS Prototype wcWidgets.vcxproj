@@ -21,10 +21,12 @@
   <ItemGroup>
     <ClInclude Include="cApp.h" />
     <ClInclude Include="cMain.h" />
+    <ClInclude Include="wxImagePanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cApp.cpp" />
     <ClCompile Include="cMain.cpp" />
+    <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
